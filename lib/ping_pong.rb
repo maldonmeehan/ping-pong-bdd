@@ -1,14 +1,18 @@
 class Fixnum
   define_method(:ping_pong?) do
+    numbers = (1..self)
     ping_pongs = Array.new
-    if self.%(15).eql?(0)
-      ping_pongs.push("ping-pong")
-    elsif self.%(5).eql?(0)
-      ping_pongs.push("pong")
-    elsif self.%(3).eql?(0)
-      ping_pongs.push("ping")
-    else
-      ping_pongs.push()
+    numbers.each() do |number|
+      if number.%(15).eql?(0)
+        ping_pongs.push("ping-pong")
+      elsif number.%(5).eql?(0)
+        ping_pongs.push("pong")
+      elsif number.%(3).eql?(0)
+        ping_pongs.push("ping")
+      else
+        ping_pongs.push(number)
+      end
     end
+    ping_pongs
   end
 end
